@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evan's Course Recommender</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-content">
+      <h1><i class="fas fa-graduation-cap"></i> Evan's Course Recommender</h1>
+      <p class="subtitle">Discover your perfect courses using AI-powered recommendations</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="search-section">
+      <label for="query">What do you want to learn?</label>
+      <textarea
+        id="query"
+        placeholder="e.g. I enjoyed systems programming and want something hands-on with real-world applications..."
+      ></textarea>
+      
+      <div class="controls">
+        <div class="result-count">
+          <label for="count">Number of results:</label>
+          <select id="count">
+            <option value="3">3 courses</option>
+            <option value="5" selected>5 courses</option>
+            <option value="10">10 courses</option>
+          </select>
+        </div>
+        <button id="submit">
+          <i class="fas fa-search"></i> Find Courses
+        </button>
+      </div>
+    </div>
+
+    <div id="results" class="results-grid"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

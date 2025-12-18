@@ -2,10 +2,21 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
+from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 from data.courses import courses
 
 app = FastAPI(title="Course Recommender API")
+
+app.mount("/ui", StaticFiles(directory="frontend", html=True), name="frontend")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Load model once at startup
 model = SentenceTransformer("all-MiniLM-L6-v2")
@@ -48,3 +59,4 @@ def recommend(req: RecommendRequest):
         })
 
     return {"query": req.query, "results": results}
+
