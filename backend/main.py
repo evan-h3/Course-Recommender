@@ -4,10 +4,15 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 
 from data.courses import courses
 
 app = FastAPI(title="Course Recommender API")
+
+@app.get("/")
+def redirect_to_ui():
+    return RedirectResponse(url="/ui/")
 
 app.mount("/ui", StaticFiles(directory="frontend", html=True), name="frontend")
 
