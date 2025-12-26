@@ -2,5 +2,5 @@ a lightweight course recommendation tool that uses semantic similarity to sugges
 
 built with FastAPI, sentence-transformer embeddings, and a simple UI for testing queries
 
-demo link: ttps://course-recommender-tevn.onrender.com
+demo link: https://course-recommender-tevn.onrender.com
 
